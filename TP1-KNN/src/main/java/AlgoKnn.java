@@ -16,19 +16,23 @@ public class AlgoKnn {
             String [] nextLine;
             IrisList = new ArrayList();
             while ((nextLine = reader.readNext()) != null) {
-                System.out.println(nextLine[0] + ", " + nextLine[1] + ", " + nextLine[2] + ", " + nextLine[3] + ", " + nextLine[4] + ", ");
-                IrisList.add(new Iris(
-                        Float.parseFloat(nextLine[0]),
-                        Float.parseFloat(nextLine[1]),
-                        Float.parseFloat(nextLine[2]),
-                        Float.parseFloat(nextLine[3]),
-                        nextLine[4]
-                ));
+                if(nextLine.length == 5) {
+                    System.out.println(nextLine[0] + ", " + nextLine[1] + ", " + nextLine[2] + ", " + nextLine[3] + ", " + nextLine[4] + ", ");
+                    IrisList.add(new Iris(
+                            Float.parseFloat(nextLine[0]),
+                            Float.parseFloat(nextLine[1]),
+                            Float.parseFloat(nextLine[2]),
+                            Float.parseFloat(nextLine[3]),
+                            nextLine[4]
+                    ));
+                }
             }
             System.out.println("Apprentissage fait ! !");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
 }
