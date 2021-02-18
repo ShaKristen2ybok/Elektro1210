@@ -17,12 +17,12 @@ class AlgoKnn {
 
     AlgoKnn() {
         try {
-            CSVReader reader = new CSVReader(new FileReader("data/TP1/iris.data"));
+            CSVReader reader = new CSVReader(new FileReader("data/TP1/iris-base.data"));
             String [] nextLine;
             IrisList = new ArrayList<Iris>();
             while ((nextLine = reader.readNext()) != null) {
                 if(nextLine.length == 5) {
-                    System.out.println(nextLine[0] + ", " + nextLine[1] + ", " + nextLine[2] + ", " + nextLine[3] + ", " + nextLine[4] + ", ");
+                    //System.out.println(nextLine[0] + ", " + nextLine[1] + ", " + nextLine[2] + ", " + nextLine[3] + ", " + nextLine[4] + ", ");
                     IrisList.add(new Iris(
                             Double.parseDouble(nextLine[0]),
                             Double.parseDouble(nextLine[1]),
@@ -32,7 +32,7 @@ class AlgoKnn {
                     ));
                 }
             }
-            System.out.println("Apprentissage fait ! !");
+            //System.out.println("Apprentissage fait ! !");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ class AlgoKnn {
 
 
     public String getResponse(double sL, double sW, double pL, double pW, int Knn) {
-        System.out.println("Calcul du tableau de distances.");
+        //System.out.println("Calcul du tableau de distances.");
         HashMap<Iris, Double> tableauDistances = new HashMap<Iris, Double>();
         for (Iris i:IrisList) {
             tableauDistances.put(i,
@@ -59,7 +59,7 @@ class AlgoKnn {
 
         //Debug : Voir si le tableau est bien trié du plus proche au plus loin (limité à trois objets)
         for (int i = 0; i < 3; i++) {
-            System.out.println(tableauDistanceTriee.get(i));
+            //System.out.println(tableauDistanceTriee.get(i));
         }
 
         // On récupère le k premières réponses (les plus proches)
@@ -79,7 +79,7 @@ class AlgoKnn {
         for (Map.Entry<String, Integer> e : occurences.entrySet()) {
             String s = e.getKey();
             Integer i = e.getValue();
-            System.out.println(s + " : " + i.toString());
+            //System.out.println(s + " : " + i.toString());
         }
 
         //On trie le tableau selon ses valeurs
@@ -95,7 +95,7 @@ class AlgoKnn {
 
         //Debug : Voir si le tableau est bien trié du plus grand au plus petit
         for (int i = 0; i < 3; i++) {
-            System.out.println(occurencesTriee.get(i));
+            //System.out.println(occurencesTriee.get(i));
         }
 
         //On prend le premier dans la liste ! :D
